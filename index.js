@@ -140,21 +140,20 @@ console.log('Task 3');
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
 class Instructor extends Lambdasian {
-  constructor({name, age, location, specialty, favLanguage, catchPhrases}) {
-    super({name, age, location, specialty, favLanguage, catchPhrases});
+  constructor({name, age, location, specialty, favLanguage, catchPhrase}) {
+    super({name, age, location, specialty, favLanguage, catchPhrase});
     this.specialty = specialty;
     this.favLanguage = favLanguage;
     this.catchPhrase = catchPhrase;
   }
-  demo (subject) {
+  demo(subject) {
     return `Today we are learning about ${subject}`;
   }
-  grade (student, subject) {
+  grade(student, subject) {
     return `${student.name} receives a perfect score on ${subject}`;
   }
-};
-
-console.log('Task 4');
+}
+  
 
 /*
   TASK 5
