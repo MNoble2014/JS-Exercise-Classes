@@ -41,9 +41,31 @@ class Airplane {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-class Person {
-  
+class Person  {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
+  }
 }
+Person.prototype.eat = function(edible) {
+  if(this.stomach.length < 10) {
+    this.stomach.push(edible);
+  }
+}
+Person.prototype.poop = function() {
+  this.stomach = [];
+}
+Person.prototype.toString = function() {
+  return `${this.name}, ${this.age};`
+}
+
+const john = new Person('John', 72);
+console.log(john.toString());
+john.eat('pizza', 'salad', 'pie');
+console.log(john.stomach);
+john.poop();
+console.log(john.stomach);
 
 /*
   TASK 2
