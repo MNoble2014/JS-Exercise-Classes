@@ -47,25 +47,19 @@ class Person  {
     this.age = age;
     this.stomach = [];
   }
-}
-Person.prototype.eat = function(edible) {
-  if(this.stomach.length < 10) {
-    this.stomach.push(edible);
+  eat(edible) {
+    if(this.stomach.length < 10) {
+      this.stomach.push(edible);
+    }
+  }
+  poop() {
+    this.stomach = [];
+  }
+  toString () {
+    return `${this.name}, ${this.age}`;
   }
 }
-Person.prototype.poop = function() {
-  this.stomach = [];
-}
-Person.prototype.toString = function() {
-  return `${this.name}, ${this.age};`
-}
-
-const john = new Person('John', 72);
-console.log(john.toString());
-john.eat('pizza', 'salad', 'pie');
-console.log(john.stomach);
-john.poop();
-console.log(john.stomach);
+console.log('Task 1');
 
 /*
   TASK 2
@@ -88,21 +82,22 @@ class Car {
     this.tank = 0;
     this.odometer = 0;
   }
-}
-Car.prototype.drive = function(gallons) {
-  this.tank = this.tank + gallons;
-}
-Car.prototype.drive = function(dist) {
-  const driveableMiles = this.tank - this.milesPerGallon;
-  if(dist <= driveableMiles) {
-    this.odometer = this.odometer + dist;
-    this.tank = this.tank - (dist / this.milePerGallon);
-  } else {
-    this.odometer = this.odometer + driveableMiles;
-    this.tank = 0;
-    return `I ran out of fuel at ${this.odometer} miles`;
+  fill(gallons) {
+    this.tank = this.tank + gallons;
+  }
+  drive(dist) {
+    const driveableMiles = this.tank * this.milesPerGallon;
+    if(dist <= driveableMiles) {
+      this.odometer = this.tank + dist;
+      this.tank = this.tank - (dist / this.milesPerGallon);
+    } else {
+      this.odometer = this.odometer + driveableMiles;
+      this.tank = 0;
+      return `I ran out of fuel at ${this.odometer} miles!`
+    }
   }
 }
+
 console.log('Task 2');
 
 /*
